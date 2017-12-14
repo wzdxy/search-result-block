@@ -1,0 +1,19 @@
+.hidden-search-result-box{
+    display: none;
+}
+
+.temp-hidden-content{
+    display: none;
+}
+
+#ires{
+    visibility: hidden;
+}
+
+#wrapper>#wrapper_wrapper{
+    visibility: hidden;
+}
+
+#user-blocked-search-result-info-ele{
+    padding-left: 1rem;
+}

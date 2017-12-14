@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Test Extension Options</title>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        h3{
+            text-decoration: underline;
+        }
+
+        input.site-item {
+            display: block;
+            margin-bottom: 5px;
+            width: 80%;
+        }
+
+        #site-list {
+            width: 80%;
+        }
+
+        #example {
+            border: 1px solid #ccc;
+            padding: 3px;
+            color: #999;
+            width: 80%;
+            margin-bottom: 4px;
+        }
+        #note, #example{
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Extension</h3>
+    <label>
+        <input type="checkbox" id="block-enabled"> Enabled</label>
+    <br>
+
+
+    <h3>Block Site:</h3>
+    <div id='note'>One line per line , Such As : </div>
+    <div id="example">
+        jianshu.com
+        <br>jianshu.io
+    </div>
+    <textarea name="site-list" id="site-list" rows="10"></textarea>
+    <br>
+
+    <h3>Enable For:</h3>
+    <label>
+        <input type="checkbox" id="google"> Google </label>
+    <label>
+        <input type="checkbox" id="baidu"> Baidu </label>
+    <label>
+        <input type="checkbox" id="bing"> Bing </label>
+    <br>
+    <br>
+
+    <button id="save">Save</button>
+    <span id="status"></span>
+
+    <br>
+
+
+    <script src="options.js"></script>
+</body>
+
+</html>
