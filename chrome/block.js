@@ -18,12 +18,15 @@ this.Element && function (ElementPrototype) {
         return el.matches ? el : null;
     }
 }(Element.prototype);
-
+let observer=new MutationObserver(function (mutations) {    
+    searchResultBlock.init().hide();
+}.bind(this));
 searchResultBlock = {
     status: {
         enabled: false
     },
     option: {},
+    
     init: function () {
         this.targetResult = [];                                 // 要处理的搜索结果
         this.engineName = this.currentEnginesName();
@@ -50,15 +53,13 @@ searchResultBlock = {
             this.hide();
         }
         console.log(this.engineName)
-        // TODO 百度使用 ajax 更新搜索的时候会部分刷新
-        // if (this.engineName === 'baidu') {
-        //     let ob = new MutationObserver(function (mutations) {
-        //         mutations.forEach(mutation => console.log(mutation))
-        //     });
-        //     ob.observe(document.querySelector('#wrapper_wrapper'), {
-        //         attributes: true, childList: true, characterData: true
-        //     })
-        // }
+        // 百度使用 ajax 更新搜索的时候会部分刷新, 监听到变化时重新 hide
+        if (this.engineName === 'baidu') {        
+            observer.observe(document.querySelector('#wrapper_wrapper'), {
+                attributes: false, childList: true, characterData: true
+            })
+        }
+        return this;
     },
 
     getMatchSearchResult: function (blockList) {

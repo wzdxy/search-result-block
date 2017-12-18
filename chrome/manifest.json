@@ -26,6 +26,7 @@
                 "*://*.bing.com/*"
             ],
             "js": [
+                "mutationobserver.min.js",
                 "block.js"
             ],
             "css": [
